@@ -1,35 +1,5 @@
 
 
-var number = 30;
-var intervalId;
-function run() {
-
-    clearInterval(intervalId);
-    intervalId = setInterval(decrement, 1000);
-  }
-  function decrement() {
-
-    number--;
-
-    $("#show-number").html("<h2>" + number + "</h2>");
-
-    if (number === 0) {
-
-        stop();
-
-      }
-    
-
-    function stop() {
-
-        clearInterval(intervalId);
-      }
-  
-      run();
-    }
-
-
-
 
 
 
@@ -56,7 +26,12 @@ document.getElementById("answer").addEventListener("click", function () {
     
 });
 
-setTimeout(timeUp, 1000 * 30);
+
+
+
+
+
+setTimeout(timeUp, 1000 * 60);
 function timeUp() {
    
 
@@ -64,3 +39,43 @@ function timeUp() {
     $("#time-left").append("<h2>Time's Up!</h2>");
     console.log("time is up"); 
 }
+
+
+var number = 60;
+var intervalId;
+$("#start").on("click", run);
+
+
+function run() {
+
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000);
+  }
+  function decrement() {
+
+    number--;
+
+    $("#show-number").html("<h2>" + number + "</h2>");
+
+    if (number === 0) {
+
+        stop();
+       
+      } else { $("#answer").on("click", stop);}
+        
+    
+      
+    
+    
+
+    function stop() {
+        
+
+        clearInterval(intervalId);
+      }
+    } 
+      
+    
+      
+
+
